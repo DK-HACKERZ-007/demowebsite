@@ -99,18 +99,21 @@ body {
   text-transform: uppercase;
 }
 
-input, textarea {
+input {
   width: 100%;
   padding: 12px 14px;
   border: 1px solid #DCE1E8;
   border-radius: 8px;
   font-size: 15px;
   background: var(--mist);
+  outline: none;
+  transition: 0.2s ease;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 100px;
+input:focus {
+  border-color: var(--sky);
+  box-shadow: 0 0 0 3px rgba(74,144,217,0.15);
+  background: #ffffff;
 }
 
 button {
@@ -123,10 +126,12 @@ button {
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+  transition: 0.2s ease;
 }
 
 button:hover {
   background: linear-gradient(135deg, #004a99, var(--navy));
+  transform: translateY(-1px);
 }
 
 .status-msg {
@@ -148,38 +153,33 @@ button:hover {
   <div class="login-card">
     <h2>Contact Form</h2>
 
-    <form
-      action="https://formspree.io/f/maqryqpy"
-      method="POST">
+    <form action="https://formspree.io/f/mojgqjyl" method="POST">
+
+      <div class="field">
+        <label for="fullname">Full Name</label>
+        <input
+          type="text"
+          id="fullname"
+          name="fullname"
+          placeholder="Enter your full name"
+          required>
+      </div>
 
       <div class="field">
         <label for="username">Username</label>
         <input
           type="text"
-          id="name"
-          name="name"
-          placeholder="Enter your name"
+          id="username"
+          name="username"
+          placeholder="Enter your username"
           required>
       </div>
-
-      <div class="field">
-        <label for="password">Password</label>
-        <input
-          type="text"
-          id="password"
-          name="password"
-          placeholder="Enter your password"
-          required>
-      </div>
-
-     
 
       <button type="submit">Submit</button>
+
     </form>
 
-    <p class="status-msg">
-      Demo form powered by Formspree.
-    </p>
+    
   </div>
 </div>
 
