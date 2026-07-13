@@ -1,137 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KLNCE Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KLNCE Contact Form</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-        body {
-            background-color: #f0f2f5;
-            min-height: 100vh;
-        }
+<style>
+:root {
+  --navy: #003366;
+  --navy-deep: #001F3F;
+  --sky: #4A90D9;
+  --gold: #E8A94A;
+  --mist: #F4F6F9;
+  --ink-soft: #5A6472;
+}
 
-        /* Logo at top left */
-        .logo-container {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        .logo {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-        }
+body {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(74,144,217,0.15), transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(232,169,74,0.12), transparent 40%),
+    linear-gradient(160deg, var(--navy-deep), var(--navy));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
 
-        /* Center content */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 120px;
-        }
+.page {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
-        .main-heading {
-            color: #003366;
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
+.logo {
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  margin-bottom: 18px;
+}
 
-        .sub-heading {
-            color: #555;
-            margin-bottom: 30px;
-            font-size: 18px;
-        }
+.main-heading {
+  font-family: 'Fraunces', serif;
+  color: white;
+  font-size: 32px;
+  margin-bottom: 4px;
+}
 
-        /* Login Form */
-        .login-container {
-            width: 350px;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-        }
+.sub-heading {
+  color: rgba(244,246,249,0.7);
+  font-size: 14px;
+  margin-bottom: 32px;
+}
 
-        .login-container h2 {
-            text-align: center;
-            color: #003366;
-            margin-bottom: 20px;
-        }
+.login-card {
+  width: 100%;
+  background: white;
+  padding: 32px 28px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,15,40,0.35);
+}
 
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
+.login-card h2 {
+  font-family: 'Fraunces', serif;
+  color: var(--navy);
+  margin-bottom: 22px;
+}
 
-        .show-password {
-            margin: 10px 0 20px 0;
-        }
+.field {
+  text-align: left;
+  margin-bottom: 16px;
+}
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #003366;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
 
-        button:hover {
-            background-color: #0055aa;
-        }
-    </style>
+input, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #DCE1E8;
+  border-radius: 8px;
+  font-size: 15px;
+  background: var(--mist);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+button {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, var(--navy), #002347);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #004a99, var(--navy));
+}
+
+.status-msg {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--navy);
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Logo -->
-    <div class="logo-container">
-        <img src="logo.png" alt="KLNCE Logo" class="logo">
-    </div>
+<div class="page">
+  <img src="logo.png" alt="KLNCE Logo" class="logo">
 
-    <!-- Center Content -->
-    <div class="container">
-        <h1 class="main-heading">KLNCE</h1>
-        <p class="sub-heading">KLN College of Engineering</p>
+  <h1 class="main-heading">KLNCE</h1>
+  <p class="sub-heading">KLN College of Engineering</p>
 
-        <div class="login-container">
-            <h2>Login</h2>
+  <div class="login-card">
+    <h2>Contact Form</h2>
 
-            <form>
-                <input type="text" placeholder="Username" required>
+    <form
+      action="https://formspree.io/f/maqryqpy"
+      method="POST">
 
-                <input type="password" id="password" placeholder="Password" required>
+      <div class="field">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required>
+      </div>
 
-                <div class="show-password">
-                    <input type="checkbox" onclick="togglePassword()">
-                    <label> Show Password</label>
-                </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required>
+      </div>
 
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Enter your message"></textarea>
+      </div>
 
-    <script>
-        function togglePassword() {
-            const password = document.getElementById("password");
-            password.type = password.type === "password" ? "text" : "password";
-        }
-    </script>
+      <button type="submit">Submit</button>
+    </form>
+
+    <p class="status-msg">
+      Demo form powered by Formspree.
+    </p>
+  </div>
+</div>
 
 </body>
 </html>
